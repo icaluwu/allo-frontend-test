@@ -77,3 +77,13 @@ You don’t need to worry about the detailed design, we’re not interested in y
 4.  Please complete the form to submit your technical test: [Click Here](https://forms.gle/nZKQ2EjTCPfAKHog7)
 
 Good luck with your assignment! Don't hesitate to contact us if you have any questions about the assignment process.
+
+---
+
+## Submission by
+
+- **Name:** Teuku Vaickal Rizki Irdian (IcalUwU)
+- **Portfolio:** [icaluwu.site](https://icaluwu.site)
+- **GitHub:** [github.com/icaluwu](https://github.com/icaluwu)
+- **LinkedIn:** [linkedin.com/in/icaluwu](https://linkedin.com/in/icaluwu)
+- **Live demo:** [icaluwu.github.io/allo-frontend-test](https://icaluwu.github.io/allo-frontend-test/)

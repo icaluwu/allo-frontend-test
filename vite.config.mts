@@ -11,6 +11,8 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // GitHub Pages serves project sites under /<repo-name>/
+  base: '/allo-frontend-test/',
   plugins: [
     VueRouter(),
     Vue({
