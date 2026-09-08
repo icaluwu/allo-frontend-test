@@ -8,7 +8,7 @@
         color="primary"
         prepend-icon="mdi-arrow-left"
         variant="text"
-        @click="router.back()"
+        @click="goBack()"
       >
         Back to rockets
       </v-btn>
@@ -82,6 +82,21 @@ const panelStatus = computed<'loading' | 'error' | 'success'>(() => {
   if (rocketStore.error) return 'error'
   return 'success'
 })
+
+interface RouterHistoryState {
+  back?: string
+}
+
+// Deep-linked visitors have no in-app history, so history.back() is a no-op
+// for them — fall back to the list instead.
+function goBack () {
+  const state = window.history.state as RouterHistoryState | null
+  if (state?.back) {
+    router.back()
+  } else {
+    router.push('/')
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -86,3 +86,4 @@ Good luck with your assignment! Don't hesitate to contact us if you have any que
 - **Portfolio:** [icaluwu.site](https://icaluwu.site)
 - **GitHub:** [github.com/icaluwu](https://github.com/icaluwu)
 - **LinkedIn:** [linkedin.com/in/icaluwu](https://linkedin.com/in/icaluwu)
+- **Live demo:** [icaluwu.github.io/allo-frontend-test](https://icaluwu.github.io/allo-frontend-test/)
