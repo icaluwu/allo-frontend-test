@@ -5,7 +5,7 @@
   >
     <v-img
       :src="imageSrc"
-      :alt="rocket.name"
+      :alt="rocket.full_name"
       cover
       height="360"
       @error="imageSrc = FALLBACK_ROCKET_IMAGE"
@@ -13,7 +13,7 @@
     <v-card-item>
       <div class="d-flex align-center flex-wrap ga-3">
         <v-card-title class="text-h4">
-          {{ rocket.name }}
+          {{ rocket.full_name }}
         </v-card-title>
         <v-chip
           :color="rocket.active ? 'success' : 'grey-darken-1'"
@@ -39,7 +39,7 @@
             Cost per launch
           </div>
           <div class="text-h6">
-            {{ formatCurrency(rocket.cost_per_launch) }}
+            {{ formatCurrency(rocket.launch_cost) }}
           </div>
         </v-col>
         <v-col
@@ -61,7 +61,7 @@
             First flight
           </div>
           <div class="text-h6">
-            {{ formatFirstFlight(rocket.first_flight) }}
+            {{ formatFirstFlight(rocket.maiden_flight) }}
           </div>
         </v-col>
       </v-row>

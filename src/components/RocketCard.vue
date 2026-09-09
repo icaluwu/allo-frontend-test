@@ -6,14 +6,14 @@
   >
     <v-img
       :src="imageSrc"
-      :alt="rocket.name"
+      :alt="rocket.full_name"
       cover
       height="200"
       @error="imageSrc = FALLBACK_ROCKET_IMAGE"
     />
     <v-card-item>
       <v-card-title>
-        <span class="text-h6">{{ rocket.name }}</span>
+        <span class="text-h6">{{ rocket.full_name }}</span>
       </v-card-title>
       <v-card-subtitle class="rocket-card__description">
         {{ description }}

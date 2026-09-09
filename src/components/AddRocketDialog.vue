@@ -12,7 +12,7 @@
         </v-icon>
         Add Rocket
       </v-card-title>
-      <v-card-subtitle>Stored locally for this session — the SpaceX API is read-only.</v-card-subtitle>
+      <v-card-subtitle>Stored locally for this session — the rocket catalog API is read-only.</v-card-subtitle>
 
       <v-form
         ref="formRef"
@@ -22,7 +22,7 @@
           <v-row dense>
             <v-col cols="12">
               <v-text-field
-                v-model="draft.name"
+                v-model="draft.fullName"
                 :rules="[requiredRule]"
                 density="comfortable"
                 label="Name"
@@ -55,7 +55,7 @@
               sm="6"
             >
               <v-text-field
-                v-model="draft.costPerLaunch"
+                v-model="draft.launchCost"
                 :rules="[validCostRule]"
                 density="comfortable"
                 label="Cost per launch (USD)"
@@ -81,7 +81,7 @@
               sm="6"
             >
               <v-text-field
-                v-model="draft.firstFlight"
+                v-model="draft.maidenFlight"
                 density="comfortable"
                 label="First flight"
                 type="date"
@@ -131,12 +131,12 @@ import { computed, reactive, ref, watch } from 'vue'
 import type { RocketCreatePayload } from '@/types/rocket'
 
 interface RocketDraft {
-  name: string
+  fullName: string
   description: string
   imageUrl: string
-  costPerLaunch: string
+  launchCost: string
   country: string
-  firstFlight: string
+  maidenFlight: string
   active: boolean
 }
 
@@ -167,12 +167,12 @@ const open = computed({
 const formRef = ref<RocketForm | null>(null)
 
 const initialDraft = (): RocketDraft => ({
-  name: '',
+  fullName: '',
   description: '',
   imageUrl: '',
-  costPerLaunch: '',
+  launchCost: '',
   country: '',
-  firstFlight: '',
+  maidenFlight: '',
   active: true,
 })
 
@@ -200,14 +200,14 @@ async function onSubmit () {
   const result = await formRef.value?.validate()
   if (!result?.valid) return
 
-  const costRaw = draft.costPerLaunch.trim()
+  const costRaw = draft.launchCost.trim()
   emit('add', {
-    name: draft.name.trim(),
+    fullName: draft.fullName.trim(),
     description: draft.description.trim(),
     imageUrl: draft.imageUrl.trim(),
-    costPerLaunch: costRaw === '' ? null : Number(costRaw),
+    launchCost: costRaw === '' ? null : Number(costRaw),
     country: draft.country.trim(),
-    firstFlight: draft.firstFlight,
+    maidenFlight: draft.maidenFlight,
     active: draft.active,
   })
   open.value = false

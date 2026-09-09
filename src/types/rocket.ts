@@ -2,21 +2,21 @@ export type RocketStatusFilter = 'all' | 'active' | 'inactive'
 
 export interface Rocket {
   id: string
-  name: string
+  full_name: string
   description: string
-  cost_per_launch: number | null
+  launch_cost: number | null
   country: string | null
-  first_flight: string | null
-  flickr_images?: string[]
+  maiden_flight: string | null
+  image_url: string | null
   active: boolean | null
 }
 
 export interface RocketCreatePayload {
-  name: string
+  fullName: string
   description: string
   imageUrl: string
-  costPerLaunch: number | null
+  launchCost: number | null
   country: string
-  firstFlight: string
+  maidenFlight: string
   active: boolean
 }

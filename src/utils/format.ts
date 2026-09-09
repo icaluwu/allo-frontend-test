@@ -10,7 +10,7 @@ export const FALLBACK_ROCKET_IMAGE = `data:image/svg+xml;utf8,${encodeURICompone
 )}`
 
 export function rocketImage (rocket: Rocket): string {
-  return rocket.flickr_images?.[0] || FALLBACK_ROCKET_IMAGE
+  return rocket.image_url || FALLBACK_ROCKET_IMAGE
 }
 
 export function truncateDescription (description: string, maxLength = 120): string {
@@ -20,7 +20,7 @@ export function truncateDescription (description: string, maxLength = 120): stri
 }
 
 export function formatCurrency (value: number | null): string {
-  if (value === null || Number.isNaN(value)) return '—'
+  if (value === null || Number.isNaN(value)) return 'Not available'
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -29,9 +29,9 @@ export function formatCurrency (value: number | null): string {
 }
 
 export function formatFirstFlight (isoDate: string | null): string {
-  if (!isoDate) return '—'
+  if (!isoDate) return 'Unknown'
   const date = new Date(isoDate)
-  if (Number.isNaN(date.getTime())) return '—'
+  if (Number.isNaN(date.getTime())) return 'Unknown'
   return new Intl.DateTimeFormat('en-GB', {
     day: 'numeric',
     month: 'long',

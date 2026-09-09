@@ -107,7 +107,7 @@ const filteredRockets = computed(() => {
   const query = searchText.value.trim().toLowerCase()
 
   return rocketStore.rockets.filter(rocket => {
-    const matchesSearch = query === '' || rocket.name.toLowerCase().includes(query)
+    const matchesSearch = query === '' || rocket.full_name.toLowerCase().includes(query)
     const matchesStatus =
       statusFilter.value === 'all' ||
       (statusFilter.value === 'active' && rocket.active === true) ||
